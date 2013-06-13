@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Lstvis - LST File Visualization</title>
+    <link rel=stylesheet type=text/css href="style.css">
+    <link rel=stylesheet type=text/css href="jquery-ui-1.10.3.custom.min.css">
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="lstvis.js"></script>
+  </head>
+  <body>
+    <div id="tooltip"></div>
+    <div id="container">
+      <h1>Lstvis - LST File Visualization</h1>
+      <p>
+      GCC your code with <strong>debug symbols</strong> to include source code infomation in the analysis.
+      <pre>gcc -g ...</pre>
+      Process you ELF file with <strong>objdump</strong> to get a .lst file.
+      <pre>objdump -h -S my.elf > my.lst</pre>
+      Paste the <strong>.lst file's contents</strong> into the text box and press 'Analyze'.
+      </p>
+      <textarea name="input" id="input"></textarea><br />
+      <input type="button" name="process" id="process" value="Analyze" />
+      <div id="output"></div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $('#process').bind('click', function() { 
+          $('#process').attr('disabled', 'disabled');
+          $('#process').val('Analyzing... (this will take some time)');
+          $('#output').html('');
+          setTimeout(function(){
+            lstvis_render($('#output'), 
+              lstvis_analyze(lstvis_parse($('#input').val())));
+            $('#process').val('Analyze');
+            $('#process').removeAttr("disabled");}, 0);
+          });
+        });
+     </script>
+   </body>
+ </html>

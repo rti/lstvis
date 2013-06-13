@@ -1,0 +1,74 @@
+body {
+  background-color: #FFE773;
+  color: #200772;
+  font-size: 10pt;
+  font-family: Sans-Serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h3, h4 {
+  border-bottom: 1px solid #000;
+}
+
+#container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input, textarea {
+  border: 1px solid #A68900;
+}
+
+textarea#input {
+  font-family: monospace;
+  width: 800px;
+  height: 200px;
+}
+
+div.graph {
+  background-color: #aaf;
+  height: 20px;
+  line-height: 20px;
+}
+
+div.graph span {
+  color: #000;
+  font-weight: bold;
+  font-size: 0.9em;
+  font-family: monospace;
+  padding-left: 0.5em;
+}
+
+div.graph-container {
+  background-color: #eef;
+  margin-top: 5px;
+}
+
+div.graph-container:hover {
+}
+
+p.section-info {
+  max-height: 200px;
+  overflow: auto;
+  padding: 1em;
+  background-color: #eef;
+}
+
+p.symbol-info {
+  max-height: 200px;
+  overflow: auto;
+  padding: 1em;
+  background-color: #eef;
+}
+
+p.monospace, pre {
+  font-family: monospace;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding: 0.3em;
+}
+
