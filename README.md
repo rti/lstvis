@@ -17,6 +17,6 @@ Process you ELF file with objdump to get a .lst file.
 
     objdump -h -S my.elf > my.lst
 
-Open **index.html** in your browser, paste the .lst's contents into the textbox and click 'Analayze'.
+Open **index.html** in your browser, paste the **.lst's contents** into the textbox and **click 'Analyze'**.
 
 **Have fun!**
