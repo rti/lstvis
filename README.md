@@ -9,7 +9,7 @@ assambly code and raw binary data.
 Howto use
 ---------
 
-GCC your code **with debug symbols** to include source code infomation in the analysis.
+GCC your code with **debug symbols** to include source code infomation in the analysis.
 
     gcc -g ...
 
