@@ -1,16 +1,13 @@
 body {
-  background-color: #FFE773;
-  color: #200772;
+  background-color: #006363;
+  color: #ffb273;
   font-size: 10pt;
   font-family: Sans-Serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
-}
-
-h3, h4 {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #bf7130;
 }
 
 #container {
@@ -20,7 +17,15 @@ h3, h4 {
 }
 
 input, textarea {
-  border: 1px solid #A68900;
+  background-color: #5ccccc;
+  color: #006363;
+  border: 1px solid #ffb273;
+}
+
+input[type="button"] {
+  font-size: 1.4em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 textarea#input {
@@ -29,8 +34,13 @@ textarea#input {
   height: 200px;
 }
 
+div.graph-container {
+  background-color: #1d7373;
+  margin-top: 5px;
+}
+
 div.graph {
-  background-color: #aaf;
+  background-color: #ff9640;
   height: 20px;
   line-height: 20px;
 }
@@ -43,32 +53,18 @@ div.graph span {
   padding-left: 0.5em;
 }
 
-div.graph-container {
-  background-color: #eef;
-  margin-top: 5px;
-}
-
-div.graph-container:hover {
-}
-
-p.section-info {
+p.section-info, p.symbol-info {
   max-height: 200px;
   overflow: auto;
   padding: 1em;
-  background-color: #eef;
-}
-
-p.symbol-info {
-  max-height: 200px;
-  overflow: auto;
-  padding: 1em;
-  background-color: #eef;
+  background-color: #1d7373;
 }
 
 p.monospace, pre {
   font-family: monospace;
-  background-color: #fff;
-  border: 1px solid #aaa;
+  background-color: #5ccccc;
+  color: #006363;
+  border: 1px dashed #ffb273;
   padding: 0.3em;
 }
 
