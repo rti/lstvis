@@ -2,8 +2,9 @@ Lstvis - LST File Visualization
 ===============================
 
 Visualize objdump's .lst / .lss files to understand the size of compiled code. 
+
 Lstvis analyzes sections and symbols referenced in objdump's output and compiles 
-those information into a ordered list of graphs including source code, 
+those information into an ordered list of graphs including source code, 
 assambly code and raw binary data.
 
 Howto use
