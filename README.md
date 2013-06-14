@@ -23,3 +23,7 @@ Go to http://files.rtti.de/lstvis/, paste the **.lst's contents** into the textb
 You can also use Lstvis locally on your machine, just checkout this repository and open index.html.
 
 **Have fun!**
+
+Screenshot
+----------
+![Image](https://raw.github.com/rti/lstvis/master/example.png)
