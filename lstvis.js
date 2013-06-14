@@ -15,6 +15,16 @@ function lstvis_parse(input) {
   var lines = input.split('\n');
   var result = {};
 
+  result['sections'] = [];
+  result['symbols'] = [];
+  result['data_symbols'] = 0;
+  result['data_symbols_size'] = 0;
+  result['instructions_symbols'] = 0;
+  result['instructions_symbols_size'] = 0;
+  result['biggest_symbol_size'] = 0;
+  result['biggest_section_size'] = 0;
+
+
   $.each(lines, function(n, line) {
     /*************************************************************** filename */
     if(state == StateEnum.Begin) {
@@ -29,7 +39,6 @@ function lstvis_parse(input) {
     /*************************************************************** sections */
     if(line.match(/^Sections:$/)) {
       state = StateEnum.Sections;
-      result['sections'] = [];
     }
 
     if(state == StateEnum.Sections) {
@@ -49,7 +58,6 @@ function lstvis_parse(input) {
     /**************************************************************** symbols */
     if(line.match(/^Disassembly of section [.a-z]+:$/)) {
       state = StateEnum.Symbols;
-      result['symbols'] = [];
     }
 
     if(state == StateEnum.Symbols) {
@@ -109,7 +117,9 @@ function lstvis_analyze(lstvis_data) {
   });
 
   // getting biggest section
-  lstvis_data['biggest_section_size'] = lstvis_data['sections'][0]['size_dec'];
+  if(lstvis_data['sections'].length > 0) {
+    lstvis_data['biggest_section_size'] = lstvis_data['sections'][0]['size_dec'];
+  }
 
   // calculate size of symbol contents
   $.each(lstvis_data['symbols'], function(n, symbol) {
@@ -117,11 +127,6 @@ function lstvis_analyze(lstvis_data) {
   });
 
   // counting symbols and adding up symbol sizes
-  lstvis_data['data_symbols'] = 0;
-  lstvis_data['data_symbols_size'] = 0;
-  lstvis_data['instructions_symbols'] = 0;
-  lstvis_data['instructions_symbols_size'] = 0;
-
   $.each(lstvis_data['symbols'], function(n, symbol) {
     if(symbol['type'] == 'instructions') {
       lstvis_data['instructions_symbols']++;
@@ -139,7 +144,9 @@ function lstvis_analyze(lstvis_data) {
   });
 
   // getting biggest symbol
-  lstvis_data['biggest_symbol_size'] = lstvis_data['symbols'][0]['size_dec'];
+  if(lstvis_data['symbols'].length > 0) {
+    lstvis_data['biggest_symbol_size'] = lstvis_data['symbols'][0]['size_dec'];
+  }
 
   console.log('analyzed');
   console.log(lstvis_data);
@@ -179,7 +186,7 @@ function lstvis_create_symbol_info(symbol) {
 /******************************************************************************/
 
 function lstvis_render(result_element, lstvis_data) {
-  result_element.append($('<h2>', { html: 'Result'}));
+  result_element.append($('<h1>', { html: 'Analysis Results'}));
 
   /***************************************************************** overview */
   result_element.append($('<h3>', { html: 'Overview'}));
