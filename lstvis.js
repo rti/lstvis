@@ -32,7 +32,6 @@ function lstvis_parse(input) {
 
       if(line.match(filename_regex)) {
         result['filename'] = line.replace(filename_regex, '$1');
-        // console.log("filename is " + result['filename']);
       }
     }
 
@@ -157,13 +156,10 @@ function lstvis_analyze(lstvis_data) {
 /******************************************************************************/
 
 function lstvis_create_section_info(section) {
-  
-  var details = $('<p>', {
+  return $('<p>', {
     class: 'section-info',
     html: 'Section ' + section['id'] + ' ' + section['name'] + '<br />' + 
       'Size: ' + lstvis_kb_b_string(section['size_dec'])});
-
-  return details;
 }
 
 /******************************************************************************/
@@ -179,8 +175,7 @@ function lstvis_create_symbol_info(symbol) {
       '<h4>Built Plain Text</h4>' +
       '<pre>' + symbol['content_ascii'] + '</pre>' +
       '<h4>Built Hex Bytes</h4>' +
-      '<p class="monospace">' + symbol['content_hex'] + '</p>'
-  });
+      '<p class="monospace">' + symbol['content_hex'] + '</p>'});
 }
 
 /******************************************************************************/
