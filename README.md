@@ -17,6 +17,8 @@ Process you ELF file with **objdump** to get a .lst file.
 
     objdump -h -S my.elf > my.lst
 
-Open **index.html** in your browser, paste the **.lst's contents** into the textbox and **click 'Analyze'**.
+Go to http://files.rtti.de/lstvis/, paste the **.lst's contents** into the textbox and **click 'Analyze'**.
+
+You can also use Lstvis locally on your machine, just checkout this repository and open index.html.
 
 **Have fun!**
